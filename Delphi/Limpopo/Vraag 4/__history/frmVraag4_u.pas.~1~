@@ -1,0 +1,81 @@
+unit frmVraag4_u;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Spin;
+
+type
+  TForm1 = class(TForm)
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label2: TLabel;
+    ListBox1: TListBox;
+    Button1: TButton;
+    GroupBox1: TGroupBox;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    BitBtn1: TBitBtn;
+    SpinEdit1: TSpinEdit;
+    Label6: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+  private
+    persentasie : Real;
+    Aantal, Slaag : Byte;
+    KGem : Real;
+    KTot : Real;
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+//============================================
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Persentasie := StrToFloat(edit1.Text) * 100 /Spinedit1.Value;
+  Listbox1.Items.add(FloatToStrF(Persentasie,ffFixed, 5, 1));
+  If Persentasie >= 50 Then
+    Inc(slaag);
+  KTot := KTot + Persentasie;
+  KGem := KToT / Aantal;
+  Label3.Caption := 'Klas gemiddeld: ' +FloatToStrF(KGem ,ffFixed, 5, 1);
+  Label4.Caption := 'Totale Leerlinge: ' + IntToStr(Aantal);
+  Label5.Caption := 'Aantal wat slaag: ' + IntToStr(Slaag);
+  inc(aantal);
+  Edit1.Clear;
+  Edit1.SetFocus;
+end;
+//============================================
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  Aantal := 1;
+  Slaag := 0;
+  KTot := 0;
+  Spinedit1.Value := 45;
+end;
+//============================================
+procedure TForm1.BitBtn1Click(Sender: TObject);
+begin
+  Listbox1.Clear;
+  Label2.caption := '';
+  Label3.caption := 'Klas Gemideld:';
+  Label4.caption := 'Totale leerlinge:';
+  Label5.caption := 'Aantal wat slaag';
+  Spinedit1.Value := 45;
+  edit1.Clear;
+  edit1.SetFocus;
+  Aantal := 1;
+  Slaag := 0;
+  KTot := 0;
+end;
+//============================================
+end.

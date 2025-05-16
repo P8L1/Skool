@@ -1,0 +1,304 @@
+object frmQ_V_2: TfrmQ_V_2
+  Left = 0
+  Top = 0
+  Caption = 'Question2_Vraag 2'
+  ClientHeight = 457
+  ClientWidth = 710
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -15
+  Font.Name = 'Arial Rounded MT Bold'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 17
+  object pcVraag2: TPageControl
+    Left = 80
+    Top = 88
+    Width = 692
+    Height = 446
+    ActivePage = tsQ_V2_1
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -15
+    Font.Name = 'Arial Rounded MT Bold'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    OnChanging = pcVraag2Changing
+    object tsQ_V2_1: TTabSheet
+      Caption = 'Q_V2.1'
+      object DBV2_1: TDBGrid
+        Left = 22
+        Top = 32
+        Width = 492
+        Height = 278
+        DataSource = dsConnect
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -16
+        TitleFont.Name = 'Arial Black'
+        TitleFont.Style = []
+      end
+      object btnQ_V2_1_1: TButton
+        Left = 520
+        Top = 32
+        Width = 121
+        Height = 41
+        Caption = 'Q_V2.1.1'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        OnClick = btnQ_V2_1_1Click
+      end
+      object btnQ_V2_1_2: TButton
+        Left = 520
+        Top = 91
+        Width = 121
+        Height = 41
+        Caption = 'Q_V2.1.2'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        OnClick = btnQ_V2_1_2Click
+      end
+      object btnQ_V2_1_3: TButton
+        Left = 519
+        Top = 151
+        Width = 122
+        Height = 41
+        Caption = 'Q_V2.1.3'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        OnClick = btnQ_V2_1_3Click
+      end
+      object btnQ_V2_1_4: TButton
+        Left = 520
+        Top = 209
+        Width = 121
+        Height = 41
+        Caption = 'Q_V2.1.4'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        OnClick = btnQ_V2_1_4Click
+      end
+      object btnQ_V2_1_5: TButton
+        Left = 519
+        Top = 269
+        Width = 122
+        Height = 41
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Caption = 'Q_V2.1.5'
+        TabOrder = 5
+        OnClick = btnQ_V2_1_5Click
+      end
+    end
+    object tsQ_V2_2: TTabSheet
+      Caption = 'Q_V2.2'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Arial Rounded MT Bold'
+      Font.Style = []
+      ImageIndex = 1
+      ParentFont = False
+      object lbltblTrees: TLabel
+        Left = 15
+        Top = 0
+        Width = 42
+        Height = 17
+        Caption = 'Trees'
+      end
+      object lbltblStock: TLabel
+        Left = 15
+        Top = 118
+        Width = 42
+        Height = 17
+        Caption = 'Stock'
+      end
+      object btnQ_V2_2_2: TButton
+        Left = 183
+        Top = 363
+        Width = 121
+        Height = 40
+        Caption = 'Q_V2.2.2'
+        TabOrder = 0
+        OnClick = btnQ_V2_2_2Click
+      end
+      object btnQ_V2_2_1: TButton
+        Left = 22
+        Top = 363
+        Width = 121
+        Height = 40
+        Caption = 'Q_V2.2.1'
+        TabOrder = 1
+        OnClick = btnQ_V2_2_1Click
+      end
+      object redDisplay: TRichEdit
+        Left = 22
+        Top = 262
+        Width = 660
+        Height = 96
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Arial Rounded MT Bold'
+        Font.Style = []
+        Lines.Strings = (
+          'redDisplay')
+        ParentFont = False
+        ScrollBars = ssVertical
+        TabOrder = 2
+      end
+      object dbgTrees: TDBGrid
+        Left = 18
+        Top = 20
+        Width = 657
+        Height = 93
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        DataSource = dsTrees
+        TabOrder = 3
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -15
+        TitleFont.Name = 'Arial Rounded MT Bold'
+        TitleFont.Style = []
+      end
+      object dbgStock: TDBGrid
+        Left = 18
+        Top = 141
+        Width = 657
+        Height = 109
+        Margins.Left = 2
+        Margins.Top = 2
+        Margins.Right = 2
+        Margins.Bottom = 2
+        DataSource = dsStock
+        TabOrder = 4
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -15
+        TitleFont.Name = 'Arial Rounded MT Bold'
+        TitleFont.Style = []
+      end
+    end
+  end
+  object tblStock: TADOTable
+    Connection = ADOTrees
+    CursorType = ctStatic
+    TableName = 'Stock'
+    Left = 640
+    Top = 464
+    object tblStockFSA_Number: TFloatField
+      FieldName = 'FSA_Number'
+    end
+    object tblStockClimate: TWideStringField
+      DisplayWidth = 30
+      FieldName = 'Climate'
+      Size = 255
+    end
+    object tblStockPrice: TBCDField
+      FieldName = 'Price'
+      currency = True
+      Precision = 19
+    end
+    object tblStockSize: TFloatField
+      FieldName = 'Size'
+      DisplayFormat = '0.0'
+    end
+  end
+  object tblTrees: TADOTable
+    Connection = ADOTrees
+    CursorType = ctStatic
+    TableName = 'Trees'
+    Left = 544
+    Top = 464
+    object tblTreesFSA_Number: TFloatField
+      DisplayWidth = 9
+      FieldName = 'FSA_Number'
+    end
+    object tblTreesAfrikaanseNaam: TWideStringField
+      DisplayWidth = 20
+      FieldName = 'AfrikaanseNaam'
+      Size = 30
+    end
+    object tblTreesBotanicalName: TWideStringField
+      DisplayWidth = 26
+      FieldName = 'BotanicalName'
+      Size = 60
+    end
+    object tblTreesEnglishName: TWideStringField
+      DisplayWidth = 18
+      FieldName = 'EnglishName'
+      Size = 50
+    end
+  end
+  object dsStock: TDataSource
+    DataSet = tblStock
+    Left = 680
+    Top = 464
+  end
+  object dsTrees: TDataSource
+    DataSet = tblTrees
+    Left = 592
+    Top = 464
+  end
+  object qryTrees: TADOQuery
+    Connection = ADOTrees
+    Parameters = <>
+    Left = 720
+    Top = 464
+  end
+  object dsConnect: TDataSource
+    DataSet = qryTrees
+    Left = 760
+    Top = 464
+  end
+  object ADOTrees: TADOConnection
+    ConnectionString = 
+      'Provider=Microsoft.ACE.OLEDB.12.0;Data Source=SATrees.accdb;Pers' +
+      'ist Security Info=False'
+    LoginPrompt = False
+    Provider = 'Microsoft.ACE.OLEDB.12.0'
+    Left = 504
+    Top = 464
+  end
+end

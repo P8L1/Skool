@@ -1,0 +1,153 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, SyncObjs;
+
+type
+  TPrimeThread = class(TThread)
+  private
+    FStart, FEnd: Integer;
+    FResult: Integer;
+    FCritical: TCriticalSection;
+    FMemo: TMemo;
+  protected
+    procedure Execute; override;
+  public
+    constructor Create(AStart, AEnd: Integer; ACrit: TCriticalSection; AMemo: TMemo);
+    property Result: Integer read FResult;
+  end;
+
+  TForm1 = class(TForm)
+    btnSingleThread: TButton;
+    btnMultiThread: TButton;
+    MemoLog: TMemo;
+    procedure btnSingleThreadClick(Sender: TObject);
+    procedure btnMultiThreadClick(Sender: TObject);
+  private
+    function IsPrime(N: Integer): Boolean;
+    function CalculatePrimes(StartNum, EndNum: Integer): Integer;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+{ TForm1 }
+
+function TForm1.IsPrime(N: Integer): Boolean;
+var
+  I: Integer;
+begin
+  if N <= 1 then Exit(False);
+  for I := 2 to Trunc(Sqrt(N)) do
+    if N mod I = 0 then Exit(False);
+  Result := True;
+end;
+
+function TForm1.CalculatePrimes(StartNum, EndNum: Integer): Integer;
+var
+  I: Integer;
+begin
+  Result := 0;
+  for I := StartNum to EndNum do
+    if IsPrime(I) then
+      Inc(Result);
+end;
+
+
+procedure TForm1.btnSingleThreadClick(Sender: TObject);
+var
+  StartTick, Duration: DWORD;
+  Total: Integer;
+begin
+  MemoLog.Lines.Add('Running Single Thread...');
+  Application.ProcessMessages;
+
+  StartTick := GetTickCount;
+  Total := CalculatePrimes(1, 10000000);
+  Duration := GetTickCount - StartTick;
+
+  MemoLog.Lines.Add(Format('Single-threaded: Found %d primes in %d ms', [Total, Duration]));
+end;
+
+{ TPrimeThread }
+
+constructor TPrimeThread.Create(AStart, AEnd: Integer; ACrit: TCriticalSection; AMemo: TMemo);
+begin
+  inherited Create(True);
+  FreeOnTerminate := False;
+  FStart := AStart;
+  FEnd := AEnd;
+  FResult := 0;
+  FCritical := ACrit;
+  FMemo := AMemo;
+end;
+
+procedure TPrimeThread.Execute;
+var
+  I: Integer;
+begin
+  FResult := 0;
+  for I := FStart to FEnd do
+    if Form1.IsPrime(I) then
+      Inc(FResult);
+end;
+
+procedure TForm1.btnMultiThreadClick(Sender: TObject);
+const
+  THREAD_COUNT = 4;
+  RANGE_START = 1;
+  RANGE_END = 1000000;
+var
+  StartTick, Duration: DWORD;
+  Threads: array[0..THREAD_COUNT - 1] of TPrimeThread;
+  I, RangeSize, SubStart, SubEnd, Total: Integer;
+  CS: TCriticalSection;
+begin
+  MemoLog.Lines.Add('Running Multi Thread...');
+  Application.ProcessMessages;
+
+  StartTick := GetTickCount;
+
+  CS := TCriticalSection.Create;
+  try
+    RangeSize := (RANGE_END - RANGE_START + 1) div THREAD_COUNT;
+    for I := 0 to THREAD_COUNT - 1 do
+    begin
+      SubStart := RANGE_START + I * RangeSize;
+      if I = THREAD_COUNT - 1 then
+        SubEnd := RANGE_END
+      else
+        SubEnd := SubStart + RangeSize - 1;
+      Threads[I] := TPrimeThread.Create(SubStart, SubEnd, CS, MemoLog);
+      Threads[I].Start;
+    end;
+
+    // Wait for all threads to finish
+    for I := 0 to THREAD_COUNT - 1 do
+    begin
+      Threads[I].WaitFor;
+    end;
+
+    // Collect results
+    Total := 0;
+    for I := 0 to THREAD_COUNT - 1 do
+    begin
+      Inc(Total, Threads[I].Result);
+      Threads[I].Free;
+    end;
+  finally
+    CS.Free;
+  end;
+
+  Duration := GetTickCount - StartTick;
+  MemoLog.Lines.Add(Format('Multi-threaded: Found %d primes in %d ms', [Total, Duration]));
+end;
+
+end.

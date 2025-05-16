@@ -1,0 +1,14 @@
+program Q2_V2_p;
+
+uses
+  Forms,
+  Q2_V2_u in 'Q2_V2_u.pas' {frmQ_V_2};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmQ_V_2, frmQ_V_2);
+  Application.Run;
+end.

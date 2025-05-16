@@ -1,0 +1,48 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    lblNaam: TLabel;
+    edtNaam: TEdit;
+    btnWagwoord: TButton;
+    lblWagwoord: TLabel;
+    procedure btnWagwoordClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnWagwoordClick(Sender: TObject);
+Var
+  Wagwoord : String;//*
+  Getal : Integer;  //*
+begin
+  Getal := Random(99) + 1;//* //* //*
+  Wagwoord := edtNaam.Text[1] + edtNaam.Text[2] + edtNaam.Text[3] + IntTostr(getal);
+                     //*            //*                 //*               //*
+  lblWagwoord.Caption := Wagwoord; //*
+  edtNaam.Clear;//*
+  edtNaam.SetFocus;//*
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+   Randomize;//* //*
+end;
+
+end.

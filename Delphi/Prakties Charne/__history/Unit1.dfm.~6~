@@ -1,0 +1,177 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 515
+  ClientWidth = 779
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lblNaam: TLabel
+    Left = 83
+    Top = 96
+    Width = 32
+    Height = 13
+    Caption = 'Naam'
+  end
+  object lblVan: TLabel
+    Left = 231
+    Top = 96
+    Width = 18
+    Height = 13
+    Caption = 'Van'
+  end
+  object lblIT: TLabel
+    Left = 88
+    Top = 200
+    Width = 10
+    Height = 13
+    Caption = 'IT'
+  end
+  object lblIGO: TLabel
+    Left = 152
+    Top = 200
+    Width = 19
+    Height = 13
+    Caption = 'IGO'
+  end
+  object lblWiskunde: TLabel
+    Left = 216
+    Top = 200
+    Width = 46
+    Height = 13
+    Caption = 'Wiskunde'
+  end
+  object lblEng: TLabel
+    Left = 296
+    Top = 200
+    Width = 18
+    Height = 13
+    Caption = 'Eng'
+  end
+  object redVertoon: TRichEdit
+    Left = 88
+    Top = 296
+    Width = 215
+    Height = 113
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+  end
+  object rgbGeslag: TRadioGroup
+    Left = 400
+    Top = 108
+    Width = 177
+    Height = 61
+    Caption = 'Geslag'
+    TabOrder = 1
+  end
+  object BitBtn1: TBitBtn
+    Left = 696
+    Top = 456
+    Width = 75
+    Height = 25
+    DoubleBuffered = True
+    Kind = bkClose
+    ParentDoubleBuffered = False
+    TabOrder = 2
+  end
+  object BitBtn2: TBitBtn
+    Left = 24
+    Top = 456
+    Width = 75
+    Height = 25
+    DoubleBuffered = True
+    Kind = bkRetry
+    ParentDoubleBuffered = False
+    TabOrder = 3
+  end
+  object btnKleur: TButton
+    Left = 368
+    Top = 294
+    Width = 75
+    Height = 25
+    Caption = 'Kleur'
+    TabOrder = 4
+  end
+  object btnVerwerk: TButton
+    Left = 368
+    Top = 384
+    Width = 75
+    Height = 25
+    Caption = 'Verwerk'
+    TabOrder = 5
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 296
+    Top = 232
+    Width = 33
+    Height = 22
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 6
+    Value = 0
+  end
+  object SpinEdit2: TSpinEdit
+    Left = 216
+    Top = 232
+    Width = 33
+    Height = 22
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 7
+    Value = 0
+  end
+  object SpinEdit3: TSpinEdit
+    Left = 152
+    Top = 232
+    Width = 35
+    Height = 22
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 8
+    Value = 0
+  end
+  object SpinEdit4: TSpinEdit
+    Left = 83
+    Top = 232
+    Width = 32
+    Height = 22
+    MaxValue = 0
+    MinValue = 0
+    TabOrder = 9
+    Value = 0
+  end
+  object edtNaam: TEdit
+    Left = 81
+    Top = 128
+    Width = 121
+    Height = 21
+    TabOrder = 10
+  end
+  object edtVan: TEdit
+    Left = 231
+    Top = 128
+    Width = 121
+    Height = 21
+    TabOrder = 11
+  end
+  object pnlVertoon: TPanel
+    Left = 81
+    Top = 16
+    Width = 544
+    Height = 41
+    Caption = 'Panel Vertoon'
+    TabOrder = 12
+  end
+end

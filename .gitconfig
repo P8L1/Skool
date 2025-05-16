@@ -1,0 +1,11 @@
+[core]
+	autocrlf = true
+[user]
+	name = P8L1
+	email = pl.schoeman44@gmail.com
+[difftool "sourcetree"]
+	cmd = "'' "
+[mergetool "sourcetree"]
+	cmd = "'' "
+	trustExitCode = false
+	keepBackup = false

@@ -1,0 +1,171 @@
+unit Unit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Edit7: TEdit;
+    Edit8: TEdit;
+    Edit9: TEdit;
+    Edit10: TEdit;
+    Edit11: TEdit;
+    Edit12: TEdit;
+    Edit13: TEdit;
+    Edit14: TEdit;
+    Edit15: TEdit;
+    Edit16: TEdit;
+    Edit17: TEdit;
+    Edit18: TEdit;
+    Edit19: TEdit;
+    Edit20: TEdit;
+    Edit21: TEdit;
+    Edit22: TEdit;
+    Edit23: TEdit;
+    Edit24: TEdit;
+    Edit25: TEdit;
+    Edit26: TEdit;
+    Edit27: TEdit;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+    function GetM1()  : TArray<Integer>;
+    function GetM2()  : TArray<Integer>;
+    function MultiplyM1WithM2(const M1, M2: TArray<Integer>): TArray<Integer>;
+
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+ function GetM1()  : TArray<Integer>;
+  var
+    N1 : Integer;
+    N2 : Integer;
+    N3 : Integer;
+    N4 : Integer;
+    N5 : Integer;
+    N6 : Integer;
+    N7 : Integer;
+    N8 : Integer;
+    N9 : Integer;
+    I : Integer;
+    J : Integer;
+    x : Integer;
+  begin
+    N1 := StrToInt(Edit1.Text);
+    N2 := StrToInt(Edit2.Text);
+    N3 := StrToInt(Edit3.Text);
+    N4 := StrToInt(Edit4.Text);
+    N5 := StrToInt(Edit5.Text);
+    N6 := StrToInt(Edit6.Text);
+    N7 := StrToInt(Edit7.Text);
+    N8 := StrToInt(Edit8.Text);
+    N9 := StrToInt(Edit9.Text);
+
+    Result[0][0] := N1;
+    Result[0][1] := N2;
+    Result[0][2] := N3;
+
+    Result[1][0] := N4;
+    Result[1][1] := N5;
+    Result[1][2] := N6;
+
+    Result[2][0] := N7;
+    Result[2][1] := N8;
+    Result[2][2] := N9;
+
+  end;
+
+
+
+
+   function GetM2()  : TArray<Integer>;
+  var
+    N1 : Integer;
+    N2 : Integer;
+    N3 : Integer;
+    N4 : Integer;
+    N5 : Integer;
+    N6 : Integer;
+    N7 : Integer;
+    N8 : Integer;
+    N9 : Integer;
+    I : Integer;
+    J : Integer;
+    x : Integer;
+  begin
+    N1 := StrToInt(Edit1.Text);
+    N2 := StrToInt(Edit2.Text);
+    N3 := StrToInt(Edit3.Text);
+    N4 := StrToInt(Edit4.Text);
+    N5 := StrToInt(Edit5.Text);
+    N6 := StrToInt(Edit6.Text);
+    N7 := StrToInt(Edit7.Text);
+    N8 := StrToInt(Edit8.Text);
+    N9 := StrToInt(Edit9.Text);
+
+    Result[0][0] := N1;
+    Result[0][1] := N2;
+    Result[0][2] := N3;
+
+    Result[1][0] := N4;
+    Result[1][1] := N5;
+    Result[1][2] := N6;
+
+    Result[2][0] := N7;
+    Result[2][1] := N8;
+    Result[2][2] := N9;
+
+  end;
+
+
+procedure TForm1.Button1Click(Sender: TObject);
+
+  var
+
+        ArrayM1 : TArray<Integer>;
+        ArrayM2 : TArray<Integer>;
+        ArrayM3 : TArray<Integer>;
+        I : Integer;
+        J : Integer;
+        L : Integer;
+
+  begin
+
+    SetLength(ArrayM1, 2);
+    SetLength(ArrayM2, 2);
+    SetLength(ArrayM3, 2);
+
+    ArrayM1 := GetM1();
+    ArrayM2 := GetM2();
+
+    ArrayM3 := MultiplyM1WithM2(ArrayM1, ArrayM2);
+
+
+
+
+
+
+
+
+  end;
+
+end.

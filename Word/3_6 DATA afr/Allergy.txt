@@ -1,0 +1,13 @@
+Surname	Name	Dad’s Name	Mom’s Name	Allergy
+Coetzee	Adriaan	Riaan	Lara	Panado syrup
+Grobler	Antoinette	Freddie	Tiana	Bee sting
+Freeman	Elanie	Johan	Martie	Dairy products
+Brits	Estelle	Adam	Lenie	Asthma
+Meyer	Gerhard	Carel	Sally	Dairy products
+Van Staden	Jeanie	Arnold	Amanda	Fish
+Prinsloo	Leon	Hannes	Liana	Dairy products
+Booyens	Margie	Mike	Rencha	Bee sting
+Palmer	Shanté	Barend	Juanita	Dairy products
+Van Staden	Susan	Pierre	Julie	Elastoplast
+Steele	Wendy	Dirkie	Wendy	Peanut Butter
+
