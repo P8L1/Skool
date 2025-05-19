@@ -91,11 +91,8 @@ begin
    begin
      sVak := 'Eng';
      rHoogstePunt := iEng ;
-   end ;
+   end
 
-   if (iIT > iWisk) and (iIT > iEng ) and ( iIT > iIGO) then
-   begin
-    sVak := 'IT'
 
 
 

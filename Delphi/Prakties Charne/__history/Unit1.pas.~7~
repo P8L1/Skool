@@ -46,16 +46,14 @@ var
 sNaam : string;
 sVan : string;
 sVak : string;
-rGem : real;
- rTel : real;
+iGem : integer;
+ iTel : integer;
  iWisk : integer;
  iIT : integer;
  iIGO : integer;
  iEng : integer;
  sGeslag : string;
   iGeslag: integer;
-   rHoogstePunt : real;
-
 
 begin
  sNaam := edtNaam.Text;
@@ -64,11 +62,9 @@ begin
  iEng := SpinEdit1.Value;
  iIT := SpinEdit4.Value;
  iIGO := SpinEdit3.Value;
- rTel := iWisk + iEng + iIT + iIGO ;
- rGem := rTel /  4;
+ iTel := iWisk + iEng + iIT + iIGO ;
+ iGem := iTel /  4;
  iGeslag := rgbGeslag.ItemIndex;
-
-
 
  if iGeslag = 0 then
    begin
@@ -81,27 +77,8 @@ begin
 
   sNaam := sNaam[1] ;
 
-  if (iWisk > iIT) and (iWisk > iIGO) and (iWisk > iEng)  then
-    begin
-     sVak := 'Wisk';
-     rHoogstePunt := iWisk;
-    end;
-
-   if (iEng > iIT) and (iEng > iWisk) and (iEng > iIGO) then
-   begin
-     sVak := 'Eng';
-     rHoogstePunt := iEng ;
-   end ;
-
-   if (iIT > iWisk) and (iIT > iEng ) and ( iIT > iIGO) then
-   begin
-    sVak := 'IT'
-
-
-
   redVertoon.Lines.Add(sVan + '   '  + sNaam + '    ' + sGeslag);
-  redVertoon.Lines.Add('Gem : ' + FloatToStr(rGem))  ;
-  redVertoon.Lines.Add('Hoogste vlak :' + IntToStr(iIT) );
+  redVertoon.Lines.Add('Gem : ' + IntToStr(iGem))  ;
 
 
 
