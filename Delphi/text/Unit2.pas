@@ -1,0 +1,63 @@
+unit Unit2;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ComCtrls;
+
+type
+  TForm2 = class(TForm)
+    RichEdit1: TRichEdit;
+    Edit1: TEdit;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm2.Button1Click(Sender: TObject);
+var
+tf : TextFile;
+sEEn : String;
+begin
+
+    if not FileExists('Hi.txt') then
+      begin
+        ShowMessage('File does not exist');
+        Exit;
+      end;
+
+try
+   AssignFile(tf, 'Hi.txt');
+    Append(tf);   // dieselfde as Reset Maak die file oop by die laaste lyn
+    sEen := Edit1.Text;
+    Write(tf, sEen);
+
+
+
+finally
+     CloseFile(tf);
+end;
+
+
+
+
+
+
+
+
+
+
+end;
+
+end.
