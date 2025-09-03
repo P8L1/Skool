@@ -29,7 +29,6 @@ begin
 ///  wanneer hierdie knoppie gedruk word moet jy elke lyn uit die text file
 ///  Hi.txt op die red wys. As n lyn n getal in het moet jy nie net die lyn op die
 ///  red wys nie maar ook die woord getal na nie lyn
-///
 ///  Bv
 ///  Kom ons se Hi tot text lyk as volg:
 ///
