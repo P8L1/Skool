@@ -1,0 +1,94 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 585
+  ClientWidth = 823
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lblRapport2025: TLabel
+    Left = 272
+    Top = 24
+    Width = 73
+    Height = 13
+    Caption = 'lblRapport2025'
+  end
+  object redAfvoer: TRichEdit
+    Left = 160
+    Top = 80
+    Width = 545
+    Height = 401
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Lines.Strings = (
+      'RichEdit1')
+    ParentFont = False
+    TabOrder = 0
+  end
+  object btnEen: TButton
+    Left = 728
+    Top = 152
+    Width = 75
+    Height = 25
+    Caption = 'btnEen'
+    TabOrder = 1
+  end
+  object btnTwee: TButton
+    Left = 264
+    Top = 504
+    Width = 75
+    Height = 25
+    Caption = 'btnTwee'
+    TabOrder = 2
+  end
+  object btnDrie: TButton
+    Left = 464
+    Top = 504
+    Width = 75
+    Height = 25
+    Caption = 'btnDrie'
+    TabOrder = 3
+  end
+  object btnVier: TBitBtn
+    Left = 88
+    Top = 504
+    Width = 75
+    Height = 25
+    Caption = 'btnVier'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 4
+  end
+  object btnVyf: TBitBtn
+    Left = 688
+    Top = 504
+    Width = 75
+    Height = 25
+    Caption = 'btnVyf'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 5
+  end
+  object rgbGraad: TRadioGroup
+    Left = 24
+    Top = 152
+    Width = 113
+    Height = 225
+    Caption = 'rgbGraad'
+    Items.Strings = (
+      'Gr 10'
+      'Gr 11'
+      'Gr 12')
+    TabOrder = 6
+  end
+end

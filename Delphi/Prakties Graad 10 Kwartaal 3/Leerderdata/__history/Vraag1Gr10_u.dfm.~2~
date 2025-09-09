@@ -1,0 +1,90 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 585
+  ClientWidth = 823
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 272
+    Top = 24
+    Width = 193
+    Height = 49
+    Caption = 'Label1'
+  end
+  object RichEdit1: TRichEdit
+    Left = 160
+    Top = 152
+    Width = 545
+    Height = 297
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    Lines.Strings = (
+      'RichEdit1')
+    ParentFont = False
+    TabOrder = 0
+  end
+  object Button1: TButton
+    Left = 728
+    Top = 152
+    Width = 75
+    Height = 25
+    Caption = 'Button1'
+    TabOrder = 1
+  end
+  object Button2: TButton
+    Left = 264
+    Top = 504
+    Width = 75
+    Height = 25
+    Caption = 'Button2'
+    TabOrder = 2
+  end
+  object Button3: TButton
+    Left = 464
+    Top = 504
+    Width = 75
+    Height = 25
+    Caption = 'Button3'
+    TabOrder = 3
+  end
+  object BitBtn1: TBitBtn
+    Left = 88
+    Top = 504
+    Width = 75
+    Height = 25
+    Caption = 'BitBtn1'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 4
+  end
+  object BitBtn2: TBitBtn
+    Left = 688
+    Top = 504
+    Width = 75
+    Height = 25
+    Caption = 'BitBtn2'
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
+    TabOrder = 5
+  end
+  object RadioGroup1: TRadioGroup
+    Left = 24
+    Top = 152
+    Width = 113
+    Height = 249
+    Caption = 'RadioGroup1'
+    TabOrder = 6
+  end
+end

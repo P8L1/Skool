@@ -1,0 +1,256 @@
+unit Vraag1Gr10_u;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls, Buttons, ComCtrls, Math;
+
+type
+  TForm1 = class(TForm)
+    lblRapport2025: TLabel;
+    redAfvoer: TRichEdit;
+    btnVerwerk: TButton;
+    btnLaagste: TButton;
+    btnHoogste: TButton;
+    btnVier: TBitBtn;
+    btnVyf: TBitBtn;
+    rgbGraad: TRadioGroup;
+    procedure FormCreate(Sender: TObject);
+    procedure btnVerwerkClick(Sender: TObject);
+    procedure btnLaagsteClick(Sender: TObject);
+    procedure btnHoogsteClick(Sender: TObject);
+    procedure btnVierClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnHoogsteClick(Sender: TObject);
+var
+tfPunte : TextFile;
+sReel : String;
+iLeerders : Integer;
+iKeuse : Integer;
+dGem, dGemVak1, dGemVak2 : Double;
+iVak1, iVak2, iTotaalVak1, iTotaalVak2: Integer;
+sNaam, sVan, sGraad, sMsg : String;
+arLaagste : Array of String;
+begin
+try
+  iKeuse := rgbGraad.ItemIndex;
+
+
+  AssignFile(tfPunte, 'Punte.txt');
+  Reset(tfPunte);
+
+  SetLength(arLaagste, 3);
+  // naam van punt
+  case iKeuse of
+     1: sGraad := '10';
+     2: sGraad := '11';
+     3: sGraad := '12';
+  end;
+  arLaagste[2] := '0';
+  while not EOF(tfPunte) do
+  // Piet Snoek#81 90
+    begin
+      Inc(iLeerders);
+
+      sNaam := '';
+      sVan := '';
+      dGem := 0;
+      iVak1 := 0;
+      iVak2 := 0;
+
+      Readln(tfPunte, sReel);
+
+      sNaam := Trim(copy(sReel, 1, pos(' ', sReel) - 1));
+      delete(sReel, 1, pos(' ', sReel));
+      sVan := Trim(copy(sReel, 1, pos('#', sReel) - 1));
+      iVak1 := StrToInt(copy(sReel, pos('#', sReel) + 1, 2));
+      iVak2 := StrToInt(copy(sReel, pos('#', sReel) + 4, 2));
+
+      dGem := (iVak1 + iVak2) /2;
+
+      if StrTOFLoat(arLaagste[2]) < dGem then
+      begin
+           arLaagste[2] := FloatToStr(dGem);
+           arLaagste[0]  :=  sNaam;
+           arLaagste[1] := sVan;
+      end;
+
+    end;
+    arLaagste[2] := FLoatTOStr(RoundTo(StrToFloat(arLaagste[2]), -2));
+    sMsg := arLaagste[0] + ' ' + arLaagste[1] + ' ' + arLaagste[2];
+    ShowMessage(sMsg);
+finally
+ CloseFIle(tfPunte);
+end;
+end;
+
+procedure TForm1.btnLaagsteClick(Sender: TObject);
+var
+tfPunte : TextFile;
+sReel : String;
+iLeerders : Integer;
+iKeuse : Integer;
+dGem, dGemVak1, dGemVak2 : Double;
+iVak1, iVak2, iTotaalVak1, iTotaalVak2: Integer;
+sNaam, sVan, sGraad, sMsg : String;
+arLaagste : Array of String;
+begin
+try
+  iKeuse := rgbGraad.ItemIndex;
+
+  AssignFile(tfPunte, 'Punte.txt');
+  Reset(tfPunte);
+
+  SetLength(arLaagste, 3);
+  // naam van punt
+  case iKeuse of
+     1: sGraad := '10';
+     2: sGraad := '11';
+     3: sGraad := '12';
+  end;
+  arLaagste[2] := '100';
+  while not EOF(tfPunte) do
+  // Piet Snoek#81 90
+    begin
+      Inc(iLeerders);
+
+      sNaam := '';
+      sVan := '';
+      dGem := 0;
+      iVak1 := 0;
+      iVak2 := 0;
+
+      Readln(tfPunte, sReel);
+
+      sNaam := Trim(copy(sReel, 1, pos(' ', sReel) - 1));
+      sNaam := sNaam[1];
+      delete(sReel, 1, pos(' ', sReel));
+      sVan := Trim(copy(sReel, 1, pos('#', sReel) - 1));
+      iVak1 := StrToInt(copy(sReel, pos('#', sReel) + 1, 2));
+      iVak2 := StrToInt(copy(sReel, pos('#', sReel) + 4, 2));
+
+      dGem := (iVak1 + iVak2) /2;
+
+      if StrTOFLoat(arLaagste[2]) > dGem then
+      begin
+           arLaagste[2] := FloatToStr(dGem);
+           arLaagste[0]  :=  sNaam;
+           arLaagste[1] := sVan;
+
+      end;
+
+    end;
+    arLaagste[2] := FLoatTOStr(RoundTo(StrToFloat(arLaagste[2]), -2));
+    sMsg := arLaagste[0] + ' ' + arLaagste[1] + ' ' + arLaagste[2];
+    ShowMessage(sMsg);
+finally
+ CloseFIle(tfPunte);
+end;
+end;
+
+
+procedure TForm1.btnVerwerkClick(Sender: TObject);
+var
+tfPunte : TextFile;
+sReel : String;
+iLeerders : Integer;
+iKeuse : Integer;
+dGem, dGemVak1, dGemVak2 : Double;
+iVak1, iVak2, iTotaalVak1, iTotaalVak2: Integer;
+sNaam, sVan, sGraad : String;
+
+begin
+try
+  iKeuse := rgbGraad.ItemIndex;
+
+
+  AssignFile(tfPunte, 'Punte.txt');
+  Reset(tfPunte);
+  if iKeuse = 0 then
+     begin
+        sGraad := '10'
+     end
+     else if iKeuse = 1  then
+          begin
+            sGraad := '11'
+          end
+     else
+     begin
+         sGraad := '12'
+     end;
+
+
+  while not EOF(tfPunte) do
+  // Piet Snoek#81 90
+    begin
+      Inc(iLeerders);
+
+      sNaam := '';
+      sVan := '';
+      dGem := 0;
+      iVak1 := 0;
+      iVak2 := 0;
+
+      Readln(tfPunte, sReel);
+
+      sNaam := Trim(copy(sReel, 1, pos(' ', sReel) - 1));
+      delete(sReel, 1, pos(' ', sReel));
+      sVan := Trim(copy(sReel, 1, pos('#', sReel) - 1));
+      iVak1 := StrToInt(copy(sReel, pos('#', sReel) + 1, 2));
+      iVak2 := StrToInt(copy(sReel, pos('#', sReel) + 4, 2));
+
+      iTotaalVak1 := iTotaalVak1 + iVak1;
+      iTotaalVak2 := iTotaalVak1 + iVak2;
+
+      dGem := (iVak1 + iVak2) / 2;
+      dGem := RoundTo(dGem, -1);
+
+      redAfvoer.Lines.Add(sGraad + #9 + sNaam + #9 + sVan +  #9 + IntToStr(iVak1) + #9 + IntToStr(iVak2) + #9 + FloatToStr(dGem) ) ;
+    end;
+
+    dGemVak1 := RoundTo((iTotaalVak1/iLeerders), -1);
+    dGemVak2 := RoundTo((iTotaalVak2/iLeerders), -1);
+    redAfvoer.Lines.Add('');
+    redAfvoer.Lines.Add(#9 + #9 + #9 + '====' + #9 + '===='  ) ;
+    redAfvoer.Lines.Add(#9 + #9 + #9  + FloatToStr(dGemVak1) + #9 + FloatToStr(dGemVak2)  ) ;
+finally
+ CloseFIle(tfPunte);
+end;
+end;
+
+procedure TForm1.btnVierClick(Sender: TObject);
+begin
+redAfvoer.Lines.Clear;
+rgbGraad.ItemIndex := -1;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+redAfvoer.Paragraph.TabCount := 6;
+redAfvoer.Paragraph.Tab[0] := 30;
+redAfvoer.Paragraph.Tab[1] := 80;
+redAfvoer.Paragraph.Tab[2] := 150;
+redAfvoer.Paragraph.Tab[3] := 200;
+redAfvoer.Paragraph.Tab[4] := 250;
+redAfvoer.Paragraph.Tab[5] := 300;
+
+redAfvoer.Lines.Add(#9 + #9  + #9  + 'Rapport 2025');
+redAfvoer.Lines.Add('');
+redAfvoer.Lines.Add('Graad' + #9 + 'Naam' + #9 + 'Van' + #9 + 'Vak1' + #9 + 'Vak2' + #9 + 'Gem');
+redAfvoer.Lines.Add('====' + #9 + '====' + #9 + '====' + #9 + '====' + #9 + '====' + #9 + '====');
+end;
+
+end.

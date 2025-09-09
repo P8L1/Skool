@@ -1,0 +1,59 @@
+unit Unit2;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ComCtrls;
+
+type
+  TForm2 = class(TForm)
+    RichEdit1: TRichEdit;
+    Button1: TButton;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+
+
+
+procedure SplitString(const Input, Delimiter: string; out Output: TArray<string>);
+var
+SL : TStringList;
+I :Integer;
+begin
+  SL := TStringList.Create;
+  try
+    SL.Delimiter := Delimiter[1];
+    SL.StrictDelimiter := True;
+    SL.DelimitedText := Input;
+    SetLength(Output, SL.Count);
+    for I := 0 to SL.Count - 1 do
+         begin
+           Output[I] := SL[I];
+         end;
+  finally
+       SL.Free;
+  end;
+end;
+
+procedure TForm2.Button1Click(Sender: TObject);
+var
+
+tf : TextFile;
+sReel : String;
+
+begin
+
+end;
+
+end.
