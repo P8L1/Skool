@@ -1,0 +1,155 @@
+{
+  // ───────────────────────────────── GENERAL / SAFETY / TELEMETRY ─────────────────────────────────
+  "redhat.telemetry.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "update.enableWindowsBackgroundUpdates": false,
+
+  // ───────────────────────────────── WORKBENCH & UI THEMING ────────────────────────────────────────
+  "workbench.colorTheme": "Neon City",
+  "workbench.colorCustomizations": {},
+  "workbench.editorAssociations": {
+    "*.jar": "default"
+  },
+
+  // ───────────────────────────────── EXPLORER / FILES ─────────────────────────────────────────────
+  "explorer.compactFolders": false,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.fileNesting.patterns": {
+    "*.db": "${capture}.${extname}-*",
+    "*.db3": "${capture}.${extname}-*",
+    "*.dart": "${capture}.g.dart",
+    "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+    "*.jsx": "${capture}.js",
+    "*.s3db": "${capture}.${extname}-*",
+    "*.sdb": "${capture}.${extname}-*",
+    "*.sqlite": "${capture}.${extname}-*",
+    "*.sqlite3": "${capture}.${extname}-*",
+    "*.ts": "${capture}.js",
+    "*.tsx": "${capture}.ts",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb",
+    "pubspec.yaml": "pubspec.lock,pubspec_overrides.yaml,.packages,.flutter-plugins,.flutter-plugins-dependencies,.metadata",
+    "tsconfig.json": "tsconfig.*.json"
+  },
+
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 5000,
+
+  // ───────────────────────────────── EDITOR CORE BEHAVIOR ─────────────────────────────────────────
+  "diffEditor.codeLens": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.hover.delay": 1000,
+  "editor.inlayHints.enabled": "on",
+  "editor.inlineSuggest.enabled": false,
+  "editor.inlineSuggest.showToolbar": "always",
+  "editor.largeFileOptimizations": false,
+  "editor.quickSuggestions": { "other": "off" },
+  "editor.tabCompletion": "on",
+  "indentRainbow.colors": [
+    "rgba(247, 37, 133,0.15)",
+    "rgba(181, 23, 158,0.15)",
+    "rgba(114, 9, 183, 0.15)",
+    "rgba(86, 11, 173,0.15)",
+    "rgba(72, 12, 168,0.15)",
+    "rgba(58, 12, 163,0.15)",
+    "rgba(63, 55, 201,0.15)",
+    "rgba(63, 55, 201,0.1)",
+    "rgba(63, 55, 201,0.05)",
+    "rgba(63, 55, 201,0.025)"
+  ],
+  "notebook.formatOnSave.enabled": true,
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+
+  // ───────────────────────────────── LANGUAGE-SPECIFIC SETTINGS ───────────────────────────────────
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[dart]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.rulers": [80],
+    "editor.selectionHighlight": false,
+    "editor.tabCompletion": "onlySnippets",
+    "editor.wordBasedSuggestions": "off"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.defaultColorDecorators": "never",
+    "editor.quickSuggestions": {
+      "strings": "on"
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // ───────────────────────────────── YAML ───────────────────────────────────────────────────────
+  "vscode-yaml-sort.sortOnSave": 0,
+
+  // ───────────────────────────────── PYTHON ───────────────────────────────────────────────────────
+  "python.createEnvironment.trigger": "off",
+  "python.terminal.shellIntegration.enabled": true,
+
+  // ───────────────────────────────── DART / FLUTTER ───────────────────────────────────────────────
+  "dart.flutterSdkPath": "C:\\Users\\User\\Documents\\flutter",
+  "dart.openDevTools": "flutter",
+
+  // ───────────────────────────────── RUST ─────────────────────────────────────────────────────────
+  "rust-analyzer.cargo.allFeatures": true,
+  "rust-analyzer.check.command": "clippy",
+  "rust-analyzer.inlayHints.enable": true,
+  "rust-analyzer.procMacro.enable": true,
+
+  // ───────────────────────────────── WEB / CSS / MARKDOWN ─────────────────────────────────────────
+  "css.lint.unknownAtRules": "ignore",
+  "markdown-preview-enhanced.codeBlockTheme": "github-dark.css",
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "markdown-preview-enhanced.revealjsTheme": "blood.css",
+
+  // ───────────────────────────────── GIT & GITHUB ─────────────────────────────────────────────────
+  "git.autofetch": true,
+  "git.openRepositoryInParentFolders": "always",
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.nextEditSuggestions.enabled": true,
+
+  // ───────────────────────────────── DATABASES ──────────────────────────────────────────────
+  "database-client.autoSync": true,
+
+  // ───────────────────────────────── CMAKE / BUILD TOOLS ──────────────────────────────────────────
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  "cmake.showConfigureWithDebuggerNotification": false,
+
+  // ───────────────────────────────── EXTENSIONS / MISC ────────────────────────────────────────────
+  "codeviz.analyticsEnabled": true,
+  "docker.extension.dockerEngineAvailabilityPrompt": false,
+  "PyDocGenAI.pyDocGenAI.env.installed": true,
+  "synthwave84.brightness": 0,
+  "liveServer.settings.donotShowInfoMsg": true
+}
